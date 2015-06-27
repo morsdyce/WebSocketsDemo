@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using WampSharp.V2.Rpc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -46,6 +47,7 @@ namespace WebSockets.Api.Controllers
 
         // GET: api/values
         [HttpGet]
+        [WampProcedure("todos.get")]
         public IEnumerable<Todo> Get()
         {
             return todos;
@@ -53,6 +55,7 @@ namespace WebSockets.Api.Controllers
 
         // POST api/values
         [HttpPost]
+        [WampProcedure("todos.create")]
         public Todo Post([FromBody] Todo todo)
         {
             if (todo != null)
@@ -65,6 +68,7 @@ namespace WebSockets.Api.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
+        [WampProcedure("todos.update")]
         public void Put(Guid id, [FromBody]Todo newTodo)
         {
             var todo = todos.Where(x => Guid.Equals(x.id, id)).FirstOrDefault();
@@ -77,6 +81,7 @@ namespace WebSockets.Api.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [WampProcedure("todos.delete")]
         public void Delete(Guid id)
         {
             var todo = todos.Where(x => x.id == id).FirstOrDefault();
@@ -88,6 +93,7 @@ namespace WebSockets.Api.Controllers
         }
 
         [HttpDelete]
+        [WampProcedure("todos.clear")]
         public void ClearCompleted()
         {
             var todosToRemove = todos.Where(x => x.completed).ToList();

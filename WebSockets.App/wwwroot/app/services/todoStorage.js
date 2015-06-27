@@ -25,7 +25,7 @@ angular.module('todomvc')
 			});
 	})
 
-	.factory('api', function ($http, baseApiUrl) {
+	.factory('api', function ($http, baseApiUrl, $wamp) {
 		'use strict';
 
 		var store = {
@@ -46,7 +46,7 @@ angular.module('todomvc')
 
 				angular.copy(incompleteTodos, store.todos);
 
-				return $http.delete(baseApiUrl + 'todos')
+				return $wamp.call('todos.clear')
 					.then(function success() {
 						return store.todos;
 					}, function error() {
@@ -60,7 +60,7 @@ angular.module('todomvc')
 
 				store.todos.splice(store.todos.indexOf(todo), 1);
 
-				return $http.delete(baseApiUrl + 'todos/' + todo.id)
+				return $wamp.call('todos.delete', todo.id)
 					.then(function success() {
 						return store.todos;
 					}, function error() {
@@ -70,7 +70,7 @@ angular.module('todomvc')
 			},
 
 			get: function () {
-				return $http.get(baseApiUrl + 'todos')
+				return $wamp.call('todos.get')
 					.then(function (resp) {
 						angular.copy(resp.data, store.todos);
 						return store.todos;
@@ -80,7 +80,7 @@ angular.module('todomvc')
 			insert: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.post(baseApiUrl + 'todos', todo)
+				return $wamp.call('todos.create', todo)
 					.then(function success(resp) {
 						todo.id = resp.data.id;
 						store.todos.push(todo);
@@ -94,7 +94,7 @@ angular.module('todomvc')
 			put: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.put(baseApiUrl + 'todos/' + todo.id, todo)
+				return $wamp.call('todos.update', [todo.id, todo])
 					.then(function success() {
 						return store.todos;
 					}, function error() {

@@ -1,0 +1,24 @@
+{
+    "version": "1.0.0-*",
+    "description": "",
+    "authors": [ "" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "WebSockets.Api": "1.0.0-*",
+        "WampSharp.Default": "1.2.2.8-beta",
+        "Microsoft.AspNet.WebApi.Core": "5.2.3",
+        "SystemEx": "14.5.31.5",
+        "WampSharp": "1.2.2.8-beta"
+    },
+
+    "commands": {
+        "WebSockets.Sockets": "WebSockets.Sockets"
+    },
+
+    "frameworks": {
+        "dnx451": { }
+    }
+}
