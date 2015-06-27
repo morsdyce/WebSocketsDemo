@@ -1,0 +1,6 @@
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\bin\Debug\WebSockets.Wamp.exe.config
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\bin\Debug\WebSockets.Wamp.exe
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\bin\Debug\WebSockets.Wamp.pdb
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\obj\Debug\WebSockets.Wamp.csprojResolveAssemblyReference.cache
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\obj\Debug\WebSockets.Wamp.exe
+C:\Users\maayan\Documents\aspvnextwebpack\WebSockets\WebSockets.Wamp\obj\Debug\WebSockets.Wamp.pdb
