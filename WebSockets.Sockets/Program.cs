@@ -11,8 +11,6 @@ namespace WebSockets.Sockets
         public void Main(string[] args)
         {
 
-            
-
             string baseAddress = "http://127.0.0.1:9000";
 
             WebSocketsStartup.Start(url: baseAddress);

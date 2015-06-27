@@ -60,7 +60,7 @@ angular.module('todomvc')
 
 				store.todos.splice(store.todos.indexOf(todo), 1);
 
-				return $wamp.call('todos.delete', todo.id)
+				return $wamp.call('todos.delete', [todo.id])
 					.then(function success() {
 						return store.todos;
 					}, function error() {
@@ -72,7 +72,7 @@ angular.module('todomvc')
 			get: function () {
 				return $wamp.call('todos.get')
 					.then(function (resp) {
-						angular.copy(resp.data, store.todos);
+						angular.copy(resp, store.todos);
 						return store.todos;
 					});
 			},
@@ -80,9 +80,9 @@ angular.module('todomvc')
 			insert: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $wamp.call('todos.create', todo)
+				return $wamp.call('todos.create', [todo])
 					.then(function success(resp) {
-						todo.id = resp.data.id;
+						todo.id = resp.id;
 						store.todos.push(todo);
 						return store.todos;
 					}, function error() {
