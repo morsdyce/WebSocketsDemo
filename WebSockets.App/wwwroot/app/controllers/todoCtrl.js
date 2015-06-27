@@ -7,7 +7,7 @@
  */
 angular.module('todomvc')
 	.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, $filter, store) {
-		'use strict';
+	    'use strict';
 
 		var todos = $scope.todos = store.todos;
 

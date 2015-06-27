@@ -8,3 +8,5 @@
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-route/angular-route.js" />
 /// <reference path="lib/todomvc-common/base.js" />
+/// <reference path="lib/angular-wamp/angular-wamp.js" />
+/// <reference path="lib/autobahn/autobahn.js" />

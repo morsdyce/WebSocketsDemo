@@ -5,9 +5,14 @@
  *
  * @type {angular.Module}
  */
-angular.module('todomvc', ['ngRoute'])
-	.config(function ($routeProvider) {
-		'use strict';
+angular.module('todomvc', ['ngRoute', 'vxWamp'])
+	.config(function ($routeProvider, $wampProvider) {
+	    'use strict';
+
+	    $wampProvider.init({
+	        url: 'ws://127.0.0.1:9000/',
+	        realm: 'realm1'
+	    });
 
 		var routeConfig = {
 			controller: 'TodoCtrl',
@@ -29,4 +34,7 @@ angular.module('todomvc', ['ngRoute'])
 			.otherwise({
 				redirectTo: '/'
 			});
-	});
+	})
+    .run(function($wamp) {
+        $wamp.open();
+    });
