@@ -1,6 +1,8 @@
 # WebSocketsDemo
 Demo for Consuming Web API with WebSockets talk at AngularJS Israel meetup
 
+Link to slides: [Slides](http://www.slideshare.net/MaayanGlikser/websockets-50005183)
+
 ##Setup
 To run this demo please clone the repo and run npm install
 ```
